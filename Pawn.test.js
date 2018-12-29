@@ -35,6 +35,30 @@ describe('isValidDestination', () => {
     expect(pawn.isValidDestination(2)).toEqual(false);
   })
 
+  test('returns true if the destinationFile is equal to the pawn\'s current file', () => {
+    const pawn = new Pawn('black', 'b');
+
+    expect(pawn.isValidDestination(6, 'b')).toEqual(true)
+  })
+
+
+  test.each([
+    [true, 'd', 'e'],
+    [true, 'd', 'c'],
+    [true, 'b', 'a'],
+    [true, 'h', 'g'],
+    [false, 'h', 'a'],
+    [false, 'b', 'd'],
+    [false, 'd', 'g'],
+    [false, 'h', 'd'],
+    [false, 'd', 'a']
+  ])(
+    'returns %s when the pawn is on the %s file and the destination file is %s',
+    (expected, originFile, destinationFile) => {
+      const pawn = new Pawn('white', originFile);
+      expect(pawn.isValidDestination(3, destinationFile)).toEqual(expected)
+    }
+  )
 
   describe('when pawn is white', () => {
     test('it returns false if the destination rank is < the pawn\'s current rank', () => {

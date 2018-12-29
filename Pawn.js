@@ -1,3 +1,14 @@
+const files = [
+  'a',
+  'b',
+  'c',
+  'd',
+  'e',
+  'f',
+  'g',
+  'h'
+];
+
 class Pawn {
   constructor(color,  file) {
     this.color = color
@@ -6,8 +17,19 @@ class Pawn {
   }
 
   // should be named isValidDestinationRank
-  isValidDestination(rank) {
-    return this.isValidDestinationRank(rank)
+  isValidDestination(rank, file) {
+    return this.isValidDestinationRank(rank) && this.isValidDestinationFile(file)
+  }
+
+  isValidDestinationFile(file) {
+    if (this.file === file) {
+      return true;
+    }
+
+    const currentFileIndex = files.indexOf(this.file);
+    const destinationFileIndex = files.indexOf(file);
+
+    return Math.abs(currentFileIndex - destinationFileIndex) <= 1;
   }
 
   isValidDestinationRank(rank) {
@@ -34,6 +56,8 @@ class Pawn {
         return false
       }
     }
+
+    return true
   }
 }
 

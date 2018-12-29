@@ -7,24 +7,8 @@ module.exports = function(origin, destination, color = 'w') {
   }
 
   if (color === 'b') {
-    // if (destinationRank + 2 >= originRank) {
-    //   return true
-    // }
-
-
-    if (origin === 'e7' && destination === 'e6') {
-      return true
-    }
-
-    if (origin === 'e7' && destination === 'e5') {
-      return true
-    }
-
-    if (origin === 'e6' && destination === 'e4') {
-      return false
-    }
+    return isValidBlackPawnMove(origin, destination);
   }
-
 
   if (originRank + 2 < destinationRank) {
     return false
@@ -39,4 +23,25 @@ module.exports = function(origin, destination, color = 'w') {
   }
 
   return true;
+}
+
+function isValidBlackPawnMove(origin, destination) {
+  const originRank = parseInt(origin[1])
+  const destinationRank = parseInt(destination[1])
+  // if (destinationRank + 2 >= originRank) {
+  //   return true
+  // }
+
+
+  if (origin === 'e7' && destination === 'e6') {
+    return true
+  }
+
+  if (origin === 'e7' && destination === 'e5') {
+    return true
+  }
+
+  if (origin === 'e6' && destination === 'e4') {
+    return false
+  }
 }

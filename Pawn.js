@@ -23,14 +23,13 @@ class Pawn {
 
   // should be named isValidDestinationRank
   isValidDestination(rank, file) {
+    const isRequestingFileChange = this.file !== file;
     const goodDestinationFile = this.isValidDestinationFile(file);
     let goodRank = this.isValidDestinationRank(rank);
 
 
-    if (this.file !== file) {
-      goodRank = this.color === 'white' ?
-                    this.rank === rank - 1 :
-                    this.rank === rank + 1;
+    if (isRequestingFileChange) {
+      goodRank = rank === this.getNextRank();
     }
 
     return goodRank && goodDestinationFile;
@@ -59,6 +58,10 @@ class Pawn {
     }
 
     return true;
+  }
+
+  getNextRank() {
+    return this.color === 'white' ? this.rank + 1 : this.rank - 1;
   }
 
   isDestinationRankAnAdvance(rank) {

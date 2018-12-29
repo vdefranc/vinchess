@@ -67,7 +67,7 @@ describe('isValidDestination', () => {
       expect(pawn.isValidDestination(1)).toEqual(false);
     })
 
-    test('returns false when destinationRank is more than greater than current rank', () => {
+    test('returns false when destinationRank is more than 2 greater than current rank', () => {
       const pawn = new Pawn('white', 'c');
 
       expect(pawn.isValidDestination(5)).toEqual(false)

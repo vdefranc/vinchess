@@ -44,7 +44,7 @@ class Pawn {
   }
 
   isValidDestinationRank(rank) {
-    const numSquaresAdvancing = Math.abs(this.rank - rank)
+    const numRanksAdvancing = Math.abs(this.rank - rank)
 
     if (this.rank === rank) {
       return false
@@ -70,11 +70,19 @@ class Pawn {
       }
     }
 
-    if (numSquaresAdvancing === 2 && !this.isOnInitialRank()) {
-      return false
+    if (numRanksAdvancing > this.getMaxRanksOfAdvance()) {
+      return false;
     }
 
     return true
+  }
+
+  getMaxRanksOfAdvance() {
+    if (this.isOnInitialRank()) {
+      return 2;
+    }
+
+    return 1;
   }
 
   isOnInitialRank() {

@@ -42,6 +42,11 @@ describe('isValidDestination', () => {
     pawn.rank = 6;
 
     expect(pawn.isValidDestination(4, 'd')).toEqual(false);
+
+    const pawn2 = new Pawn('white', 'd');
+    pawn2.rank = 3;
+
+    expect(pawn2.isValidDestination(5, 'd')).toEqual(false);
   })
 
 

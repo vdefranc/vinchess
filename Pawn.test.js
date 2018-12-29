@@ -37,6 +37,13 @@ describe('isValidDestination', () => {
     expect(pawn.isValidDestination(6, 'b')).toEqual(true)
   })
 
+  test('returns false if trying to move two ranks but the pawn isn\'t on it\'s starting square', () => {
+    const pawn = new Pawn('black', 'd');
+    pawn.rank = 6;
+
+    expect(pawn.isValidDestination(4, 'd')).toEqual(false);
+  })
+
 
   test.each([
     [true, 'd', 'e'],

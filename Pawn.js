@@ -9,11 +9,16 @@ const files = [
   'h'
 ];
 
+const initialRanks = {
+  white: 2,
+  black: 7
+}
+
 class Pawn {
   constructor(color,  file) {
     this.color = color
     this.file = file
-    this.rank = color === 'white' ? 2 : 7;
+    this.rank = initialRanks[color];
   }
 
   // should be named isValidDestinationRank
@@ -39,7 +44,13 @@ class Pawn {
   }
 
   isValidDestinationRank(rank) {
+    const numSquaresAdvancing = Math.abs(this.rank - rank)
+
     if (this.rank === rank) {
+      return false
+    }
+
+    if (numSquaresAdvancing === 2 && !this.isOnInitialRank()) {
       return false
     }
 
@@ -64,6 +75,10 @@ class Pawn {
     }
 
     return true
+  }
+
+  isOnInitialRank() {
+    return this.rank === initialRanks[this.color];
   }
 }
 

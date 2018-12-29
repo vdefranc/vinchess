@@ -54,18 +54,10 @@ class Pawn {
       if (this.rank > rank) {
         return false
       }
-
-      if (this.rank + 2 < rank) {
-        return false
-      }
     }
 
     if (this.color === 'black') {
       if (this.rank < rank) {
-        return false
-      }
-
-      if (this.rank - 2 > rank) {
         return false
       }
     }

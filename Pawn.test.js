@@ -28,3 +28,26 @@ test('when the pawn is black, it will automatically have a rank of 7', () => {
   expect(pawn.rank).toEqual(7);
 })
 
+describe('isValidDestination', () => {
+  test('it returns false if the destination rank is === the pawn\'s current rank', () => {
+    const pawn = new Pawn('white', 'a');
+
+    expect(pawn.isValidDestination(2)).toEqual(false);
+  })
+
+  describe('when pawn is white', () => {
+    test('it returns false if the destination rank is < the pawn\'s current rank', () => {
+      const pawn = new Pawn('white', 'd');
+
+      expect(pawn.isValidDestination(1)).toEqual(false);
+    })
+  })
+
+  describe('when pawn is black', () => {
+    test('it returns false if the destination rank is > the pawn\'s current rank', () => {
+      const pawn = new Pawn('black', 'a');
+
+      expect(pawn.isValidDestination(8)).toEqual(false);
+    })
+  })
+})

@@ -18,14 +18,20 @@ class Pawn {
 
   // should be named isValidDestinationRank
   isValidDestination(rank, file) {
-    return this.isValidDestinationRank(rank) && this.isValidDestinationFile(file)
+    const goodDestinationFile = this.isValidDestinationFile(file);
+    let goodRank = this.isValidDestinationRank(rank);
+
+
+    if (this.file !== file) {
+      goodRank = this.color === 'white' ?
+                    this.rank === rank - 1 :
+                    this.rank === rank + 1
+    }
+
+    return goodRank && goodDestinationFile
   }
 
   isValidDestinationFile(file) {
-    if (this.file === file) {
-      return true;
-    }
-
     const currentFileIndex = files.indexOf(this.file);
     const destinationFileIndex = files.indexOf(file);
 

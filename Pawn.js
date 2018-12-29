@@ -12,12 +12,12 @@ const files = [
 const initialRanks = {
   white: 2,
   black: 7
-}
+};
 
 class Pawn {
   constructor(color,  file) {
-    this.color = color
-    this.file = file
+    this.color = color;
+    this.file = file;
     this.rank = initialRanks[color];
   }
 
@@ -30,10 +30,10 @@ class Pawn {
     if (this.file !== file) {
       goodRank = this.color === 'white' ?
                     this.rank === rank - 1 :
-                    this.rank === rank + 1
+                    this.rank === rank + 1;
     }
 
-    return goodRank && goodDestinationFile
+    return goodRank && goodDestinationFile;
   }
 
   isValidDestinationFile(file) {
@@ -44,29 +44,29 @@ class Pawn {
   }
 
   isValidDestinationRank(rank) {
-    const numRanksAdvancing = Math.abs(this.rank - rank)
+    const numRanksAdvancing = Math.abs(this.rank - rank);
 
     if (this.rank === rank) {
-      return false
+      return false;
     }
 
-    if (this.color === 'white') {
-      if (this.rank > rank) {
-        return false
-      }
-    }
-
-    if (this.color === 'black') {
-      if (this.rank < rank) {
-        return false
-      }
+    if (!this.isDestinationRankAnAdvance(rank)) {
+      return false;
     }
 
     if (numRanksAdvancing > this.getMaxRanksOfAdvance()) {
       return false;
     }
 
-    return true
+    return true;
+  }
+
+  isDestinationRankAnAdvance(rank) {
+    if (this.color === "white") {
+      return rank > this.rank;
+    } else {
+      return rank < this.rank;
+    }
   }
 
   getMaxRanksOfAdvance() {
@@ -82,4 +82,4 @@ class Pawn {
   }
 }
 
-module.exports = Pawn
+module.exports = Pawn;

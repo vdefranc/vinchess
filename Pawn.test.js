@@ -77,8 +77,7 @@ describe('isValidDestination', () => {
     })
   })
 
-
-  describe('when changing files', () => {
+  describe('when switching files', () => {
     test.each([
       [true, 'd', 'e'],
       [true, 'd', 'c'],
@@ -96,7 +95,9 @@ describe('isValidDestination', () => {
         expect(pawn.isValidDestination(3, destinationFile)).toEqual(expected)
       }
     )
+  })
 
+  describe('color-specific file-change logic', () => {
     describe('when the pawn is black', () => {
       test('returns false for a file change if the destinationRank !== currentRank - 1', () => {
         const pawn = new Pawn('black', 'e');

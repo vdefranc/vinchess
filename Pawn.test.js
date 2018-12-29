@@ -49,25 +49,6 @@ describe('isValidDestination', () => {
     expect(pawn2.isValidDestination(5, 'd')).toEqual(false);
   })
 
-
-  test.each([
-    [true, 'd', 'e'],
-    [true, 'd', 'c'],
-    [true, 'b', 'a'],
-    [true, 'h', 'g'],
-    [false, 'h', 'a'],
-    [false, 'b', 'd'],
-    [false, 'd', 'g'],
-    [false, 'h', 'd'],
-    [false, 'd', 'a']
-  ])(
-    'returns %s when the pawn is on the %s file and the destination file is %s',
-    (expected, originFile, destinationFile) => {
-      const pawn = new Pawn('white', originFile);
-      expect(pawn.isValidDestination(3, destinationFile)).toEqual(expected)
-    }
-  )
-
   describe('when pawn is white', () => {
     test('it returns false if the destination rank is < the pawn\'s current rank', () => {
       const pawn = new Pawn('white', 'd');
@@ -79,21 +60,6 @@ describe('isValidDestination', () => {
       const pawn = new Pawn('white', 'c');
 
       expect(pawn.isValidDestination(5)).toEqual(false)
-    })
-
-    test('returns false for a file change if the destinationRank !== currentRank + 1', () => {
-      const pawn = new Pawn('white', 'e');
-      expect(pawn.isValidDestination(2, 'f')).toEqual(false)
-    })
-
-    test('returns false for a file change if the destinationRank > currentRank + 1', () => {
-      const pawn = new Pawn('white', 'e');
-      expect(pawn.isValidDestination(4, 'f')).toEqual(false)
-    })
-
-    test('returns true for a file change if the destinationRank === currentRank + 1', () => {
-      const pawn = new Pawn('white', 'e');
-      expect(pawn.isValidDestination(3, 'f')).toEqual(true)
     })
   })
 
@@ -109,20 +75,60 @@ describe('isValidDestination', () => {
 
       expect(pawn.isValidDestination(4)).toEqual(false)
     })
+  })
 
-    test('returns false for a file change if the destinationRank !== currentRank + 1', () => {
-      const pawn = new Pawn('black', 'e');
-      expect(pawn.isValidDestination(7, 'f')).toEqual(false)
+
+  describe('when changing files', () => {
+    test.each([
+      [true, 'd', 'e'],
+      [true, 'd', 'c'],
+      [true, 'b', 'a'],
+      [true, 'h', 'g'],
+      [false, 'h', 'a'],
+      [false, 'b', 'd'],
+      [false, 'd', 'g'],
+      [false, 'h', 'd'],
+      [false, 'd', 'a']
+    ])(
+      'returns %s when the pawn is on the %s file and the destination file is %s',
+      (expected, originFile, destinationFile) => {
+        const pawn = new Pawn('white', originFile);
+        expect(pawn.isValidDestination(3, destinationFile)).toEqual(expected)
+      }
+    )
+
+    describe('when the pawn is black', () => {
+      test('returns false for a file change if the destinationRank !== currentRank - 1', () => {
+        const pawn = new Pawn('black', 'e');
+        expect(pawn.isValidDestination(7, 'f')).toEqual(false)
+      })
+
+      test('returns false for a file change if the destinationRank < currentRank - 1', () => {
+        const pawn = new Pawn('black', 'e');
+        expect(pawn.isValidDestination(4, 'f')).toEqual(false)
+      })
+
+      test('returns true for a file change if the destinationRank === currentRank - 1', () => {
+        const pawn = new Pawn('black', 'e');
+        expect(pawn.isValidDestination(6, 'f')).toEqual(true)
+      })
     })
 
-    test('returns false for a file change if the destinationRank > currentRank + 1', () => {
-      const pawn = new Pawn('black', 'e');
-      expect(pawn.isValidDestination(4, 'f')).toEqual(false)
-    })
+    describe('when the pawn is white', () => {
+      test('returns false for a file change if the destinationRank !== currentRank + 1', () => {
+        const pawn = new Pawn('white', 'e');
+        expect(pawn.isValidDestination(2, 'f')).toEqual(false)
+      })
 
-    test('returns true for a file change if the destinationRank === currentRank + 1', () => {
-      const pawn = new Pawn('black', 'e');
-      expect(pawn.isValidDestination(6, 'f')).toEqual(true)
+      test('returns false for a file change if the destinationRank > currentRank + 1', () => {
+        const pawn = new Pawn('white', 'e');
+        expect(pawn.isValidDestination(4, 'f')).toEqual(false)
+      })
+
+      test('returns true for a file change if the destinationRank === currentRank + 1', () => {
+        const pawn = new Pawn('white', 'e');
+        expect(pawn.isValidDestination(3, 'f')).toEqual(true)
+      })
     })
   })
 })

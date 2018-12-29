@@ -27,7 +27,6 @@ class Pawn {
     const goodDestinationFile = this.isValidDestinationFile(file);
     let goodRank = this.isValidDestinationRank(rank);
 
-
     if (isRequestingFileChange) {
       goodRank = rank === this.getNextRank();
     }

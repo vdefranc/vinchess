@@ -50,10 +50,6 @@ class Pawn {
       return false
     }
 
-    if (numSquaresAdvancing === 2 && !this.isOnInitialRank()) {
-      return false
-    }
-
     if (this.color === 'white') {
       if (this.rank > rank) {
         return false
@@ -72,6 +68,10 @@ class Pawn {
       if (this.rank - 2 > rank) {
         return false
       }
+    }
+
+    if (numSquaresAdvancing === 2 && !this.isOnInitialRank()) {
+      return false
     }
 
     return true

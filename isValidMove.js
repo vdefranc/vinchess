@@ -1,7 +1,4 @@
 module.exports = function(origin, destination, color = 'w') {
-  const originRank = parseInt(origin[1])
-  const destinationRank = parseInt(destination[1])
-
   if (origin[0] !== destination[0]) {
     return false
   }
@@ -9,6 +6,13 @@ module.exports = function(origin, destination, color = 'w') {
   if (color === 'b') {
     return isValidBlackPawnMove(origin, destination);
   }
+
+  return isValidWhitePawnMove(origin, destination);
+}
+
+function isValidWhitePawnMove(origin, destination) {
+  const originRank = parseInt(origin[1])
+  const destinationRank = parseInt(destination[1])
 
   if (originRank + 2 < destinationRank) {
     return false

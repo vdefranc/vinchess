@@ -18,7 +18,7 @@ describe('isValidMove', () => {
   })
 
   test('returns false when trying to move a pawn left one file', () => {
-    expect(isValidMove('e2', 'c2')).toEqual(false)
+    expect(isValidMove('e2', 'd2')).toEqual(false)
   })
 
   test('returns false when trying to move a pawn three squares ahead', () => {

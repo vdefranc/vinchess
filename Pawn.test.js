@@ -1,9 +1,5 @@
 const Pawn = require('./Pawn')
 
-test('Pawn is a function', () => {
-  expect(Pawn).toBeInstanceOf(Function)
-})
-
 test('Pawns can be assigned a color at instantiation', () => {
   const pawn = new Pawn('black');
 

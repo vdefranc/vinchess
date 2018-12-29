@@ -9,3 +9,5 @@ how to force the concept of board and piece state?
   => the contrast btwn white and black pawn movement direction might do it
 
   => => it is actually going to come when we need to consider things like capture, move blocking, pawn captures, etc
+
+- don't forget en passant!

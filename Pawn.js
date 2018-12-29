@@ -7,6 +7,10 @@ class Pawn {
 
   // should be named isValidDestinationRank
   isValidDestination(rank) {
+    return this.isValidDestinationRank(rank)
+  }
+
+  isValidDestinationRank(rank) {
     if (this.rank === rank) {
       return false
     }

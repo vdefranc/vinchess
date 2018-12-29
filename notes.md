@@ -10,7 +10,8 @@ how to force the concept of board and piece state?
 
   => => it is actually going to come when we need to consider things like capture, move blocking, pawn captures, etc
 
-- don't forget en passant!
-
 Q: where should move validation logic actually live? on piece classes? in the top-level game manager? Is it a mix?
 
+## pawn class
+
+todo: en passant, promotion (??)

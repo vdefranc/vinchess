@@ -18,8 +18,7 @@ test("Board has 64 <Square> children", () => {
 
 describe("Square props", () => {
   test("each square has a file prop", () => {
-    const wrapper = shallow(<Board />);
-    const squares = wrapper.find("Square");
+    const squares = getSquares();
 
     squares.map(node => {
       expect(node.prop("file")).toBeDefined();
@@ -27,11 +26,17 @@ describe("Square props", () => {
   })
 
   test("each square has a rank prop", () => {
-    const wrapper = shallow(<Board />);
-    const squares = wrapper.find("Square");
+    const squares = getSquares();
 
-    squares.map(node => {
-      expect(node.prop("rank")).toBeDefined();
+    squares.forEach(square => {
+      expect(square.prop("rank")).toBeDefined();
     });
   })
 })
+
+function getSquares() {
+  const wrapper = shallow(<Board />);
+  const squares = wrapper.find("Square");
+
+  return squares.map(node => node);
+}

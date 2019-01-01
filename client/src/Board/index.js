@@ -9,7 +9,12 @@ const Container = styled.p`
 export default function Board(props) {
   return <React.Fragment>
     {Array(64).fill('').map((_, i) => {
-      return <Square key={i}></Square>
+      return <Square
+        key={i}
+        file="a"
+        rank={i}
+      >
+      </Square>
     })}
   </React.Fragment>
 }

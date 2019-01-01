@@ -1,10 +1,15 @@
 import React from "react";
 import styled from "styled-components";
+import Square from "./Square";
 
 const Container = styled.p`
   font-weight: bold;
 `
 
 export default function Board(props) {
-  return <Container>here is a board</Container>
+  return <React.Fragment>
+    {Array(64).fill('').map((_, i) => {
+      return <Square key={i}></Square>
+    })}
+  </React.Fragment>
 }

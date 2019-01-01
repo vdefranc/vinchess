@@ -1,5 +1,10 @@
-import React from 'react';
+import React from "react";
+import styled from "styled-components";
+
+const Container = styled.p`
+  font-weight: bold;
+`
 
 export default function Board(props) {
-  return <p>here is a board</p>
+  return <Container>here is a board</Container>
 }

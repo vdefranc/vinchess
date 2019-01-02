@@ -65,7 +65,8 @@ function Square({ rank, file, size, piece }) {
       color
     }}>
       <p>{piece.type.toUpperCase()}</p>
-      <Position>{file + rank}</Position>
+
+      {/* <Position>{file + rank}</Position> */}
   </Container>;
 }
 

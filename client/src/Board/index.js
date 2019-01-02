@@ -37,7 +37,7 @@ function Board({ board }) {
 
       return <Square
         key={i}
-        {...val}
+        piece={val}
         file={file}
         rank={rank}
       >

@@ -7,13 +7,13 @@ export default function getFilledBoard() {
     for (var file in blank[rank]) {
       // console.log(blank[rank][file])
       if (rank === '2') {
-        blank[rank][file].pieceType = 'p'
-        blank[rank][file].pieceColor = 'b'
+        blank[rank][file].type = 'p'
+        blank[rank][file].color = 'b'
       }
 
       if (rank === '7') {
-        blank[rank][file].pieceType = 'p'
-        blank[rank][file].pieceColor = 'w'
+        blank[rank][file].type = 'p'
+        blank[rank][file].color = 'w'
       }
     }
   }

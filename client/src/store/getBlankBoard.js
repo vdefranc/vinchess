@@ -13,8 +13,8 @@ const files = [
 function getRow() {
   return files.reduce((acc, file) => {
     acc[file] = {
-      pieceColor: '',
-      pieceType: ''
+      color: '',
+      type: ''
     }
 
     return acc;

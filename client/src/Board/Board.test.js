@@ -77,16 +77,16 @@ describe("Square props", () => {
   describe('the value of the rank props', () => {
     const squares = getSquares();
 
-    test('the first square should have rank of 1', () => {
+    test('the first square should have rank of 8', () => {
       const square = getSquares()[0];
 
-      expect(square.prop("rank")).toEqual(1);
+      expect(square.prop("rank")).toEqual(8);
     })
 
-    test('the 9th square should have rank of 2', () => {
+    test('the 9th square should have rank of 7', () => {
       const square = getSquares()[8];
 
-      expect(square.prop("rank")).toEqual(2);
+      expect(square.prop("rank")).toEqual(7);
     })
   })
 })

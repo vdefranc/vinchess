@@ -24,7 +24,7 @@ export default function Board(props) {
     {Array(64).fill('').map((_, i) => {
       const indexOfFile = (i + 8) % 8;
       const file = files[indexOfFile];
-      const rank = Math.floor((i + 8) / 8)
+      const rank = (8 - Math.floor((i + 8) / 8)) + 1
 
       return <Square
         key={i}

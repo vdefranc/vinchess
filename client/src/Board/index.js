@@ -21,6 +21,8 @@ const files = [
 ];
 
 function Board({ board }) {
+  console.log(board)
+
   const boardAsArray = Object.entries(board).reduce((acc, [key, value]) => {
     for (var prop in value) {
       acc.push(value[prop])

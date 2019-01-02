@@ -64,7 +64,7 @@ function Square({ rank, file, size, piece }) {
       backgroundColor,
       color
     }}>
-      <i class={`cm cm-${piece.color}-${piece.type}`} aria-hidden="true"></i>
+      <i className={`cm cm-${piece.color}-${piece.type}`} aria-hidden="true"></i>
 
       {/* <Position>{file + rank}</Position> */}
   </Container>;

@@ -18,25 +18,105 @@ export default function getFilledBoard() {
       }
 
       // rook shit
-      if (rank === "1" || rank === "8") {
+      if (rank === "8") {
         if (file === "a" || file === "h") {
-          blank[rank][file].type = "r";
+          blank[rank][file].type = "rook";
+          blank[rank][file].color = 'w'
         }
 
         if (file === "b" || file === "g") {
-          blank[rank][file].type = "n"
+          if (rank === "8") {
+            blank[rank][file].color = "b"
+          } else if (rank === "1") {
+            blank[rank][file].color = "w"
+          }
+
+          blank[rank][file].type = "knight"
+          blank[rank][file].color = 'w'
         }
 
         if (file === "c" || file === "f") {
-          blank[rank][file].type = "b"
+          if (rank === "8") {
+            blank[rank][file].color = "b"
+          } else if (rank === "1") {
+            blank[rank][file].color = "w"
+          }
+
+          blank[rank][file].type = "bishop"
+          blank[rank][file].color = 'w'
         }
 
         if (file === "d") {
-          blank[rank][file].type = "K"
+          if (rank === "8") {
+            blank[rank][file].color = "b"
+          } else if (rank === "1") {
+            blank[rank][file].color = "w"
+          }
+
+          blank[rank][file].type = "king"
+          blank[rank][file].color = 'w'
         }
 
         if (file === "e") {
-          blank[rank][file].type = "Q"
+          if (rank === "8") {
+            blank[rank][file].color = "b"
+          } else if (rank === "1") {
+            blank[rank][file].color = "w"
+          }
+
+          blank[rank][file].type = "queen"
+          blank[rank][file].color = 'w'
+        }
+      }
+
+      if (rank === "1") {
+        if (file === "a" || file === "h") {
+          blank[rank][file].type = "rook";
+          blank[rank][file].color = 'b'
+        }
+
+        if (file === "b" || file === "g") {
+          if (rank === "8") {
+            blank[rank][file].color = "b"
+          } else if (rank === "1") {
+            blank[rank][file].color = "b"
+          }
+
+          blank[rank][file].type = "knight"
+          blank[rank][file].color = 'b'
+        }
+
+        if (file === "c" || file === "f") {
+          if (rank === "8") {
+            blank[rank][file].color = "b"
+          } else if (rank === "1") {
+            blank[rank][file].color = "b"
+          }
+
+          blank[rank][file].type = "bishop"
+          blank[rank][file].color = 'b'
+        }
+
+        if (file === "d") {
+          if (rank === "8") {
+            blank[rank][file].color = "b"
+          } else if (rank === "1") {
+            blank[rank][file].color = "b"
+          }
+
+          blank[rank][file].type = "king"
+          blank[rank][file].color = 'b'
+        }
+
+        if (file === "e") {
+          if (rank === "8") {
+            blank[rank][file].color = "b"
+          } else if (rank === "1") {
+            blank[rank][file].color = "b"
+          }
+
+          blank[rank][file].type = "queen"
+          blank[rank][file].color = 'b'
         }
       }
     }

@@ -12,7 +12,7 @@ test("Board is a function", () => {
 test("Board has 64 <Square> children", () => {
   const wrapper = shallow(<Board />);
 
-  expect(wrapper.find("Square").length).toEqual(64);
+  expect(wrapper.children().length).toEqual(64);
 })
 
 
@@ -93,7 +93,7 @@ describe("Square props", () => {
 
 function getSquares() {
   const wrapper = shallow(<Board />);
-  const squares = wrapper.find("Square");
+  const squares = wrapper.children();
 
   return squares.map(node => node);
 }

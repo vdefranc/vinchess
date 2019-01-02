@@ -5,6 +5,7 @@ import Square from "./Square";
 const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(8, 12.5%);
+  grid-template-rows: auto;
 `
 
 const files = [

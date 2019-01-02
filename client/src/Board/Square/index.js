@@ -21,7 +21,16 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  position: relative;
 `;
+
+const Position = styled.span`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 0.75em;
+`
 
 function Square({ rank, file, size }) {
   const fileIndexDivisibleBy2 = !(files.indexOf(file) % 2)
@@ -56,7 +65,7 @@ function Square({ rank, file, size }) {
       backgroundColor,
       color
     }}>
-    {file + rank}
+    <Position>{file + rank}</Position>
   </Container>;
 }
 

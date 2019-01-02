@@ -1,8 +1,8 @@
 import { createStore } from 'redux'
-import getBlankBoard from "./getBlankBoard";
+import getFilledBoard from "./getFilledBoard"
 
 const initialState = {
-  board: getBlankBoard()
+  board: getFilledBoard()
 }
 
 const store = createStore((state = initialState) => {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux'
 import './App.css';
 import styled from "styled-components";
-
+import "chess-merida-font/css/chessmerida-webfont.css"
 import store from "./store";
 import Board from "./Board";
 

@@ -64,7 +64,7 @@ function Square({ rank, file, size, piece }) {
       backgroundColor,
       color
     }}>
-      <p>{piece.type.toUpperCase()}</p>
+      <i class={`cm cm-${piece.color}-${piece.type}`} aria-hidden="true"></i>
 
       {/* <Position>{file + rank}</Position> */}
   </Container>;

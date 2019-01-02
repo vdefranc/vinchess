@@ -8,12 +8,12 @@ export default function getFilledBoard() {
 
       // PAWN SHIT
       if (rank === '2') {
-        blank[rank][file].type = 'p'
+        blank[rank][file].type = 'pawn'
         blank[rank][file].color = 'b'
       }
 
       if (rank === '7') {
-        blank[rank][file].type = 'p'
+        blank[rank][file].type = 'pawn'
         blank[rank][file].color = 'w'
       }
 

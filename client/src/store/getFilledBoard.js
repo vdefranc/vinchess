@@ -22,6 +22,10 @@ export default function getFilledBoard() {
         if (file === "a" || file === "h") {
           blank[rank][file].type = "r";
         }
+
+        if (file === "b" || file === "g") {
+          blank[rank][file].type = "k"
+        }
       }
     }
   }

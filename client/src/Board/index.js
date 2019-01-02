@@ -2,8 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import Square from "./Square";
 
-const Container = styled.p`
-  font-weight: bold;
+const Container = styled.div`
+  display: grid;
+  grid-template-columns: repeat(8, 12.5%);
 `
 
 const files = [
@@ -18,7 +19,7 @@ const files = [
 ];
 
 export default function Board(props) {
-  return <React.Fragment>
+  return <Container>
     {Array(64).fill('').map((_, i) => {
       const indexOfFile = (i + 8) % 8;
       const file = files[indexOfFile];
@@ -31,5 +32,5 @@ export default function Board(props) {
       >
       </Square>
     })}
-  </React.Fragment>
+  </Container>
 }

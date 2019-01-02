@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { Provider } from 'react-redux'
 import './App.css';
 import styled from "styled-components";
 
-import Board from "./Board"
+import store from "./store";
+import Board from "./Board";
 
 const Container = styled.section`
   background-color: #282c34;
@@ -13,9 +15,11 @@ const Container = styled.section`
 class App extends Component {
   render() {
     return (
-      <Container>
-        <Board />
-      </Container>
+      <Provider store={store}>
+        <Container>
+          <Board />
+        </Container>
+      </Provider>
     );
   }
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Square from "./Square";
+import { connect } from 'react-redux';
 
 const Container = styled.div`
   display: grid;
@@ -19,7 +20,7 @@ const files = [
   'h'
 ];
 
-export default function Board(props) {
+function Board(props) {
   return <Container>
     {Array(64).fill('').map((_, i) => {
       const indexOfFile = (i + 8) % 8;
@@ -35,3 +36,13 @@ export default function Board(props) {
     })}
   </Container>
 }
+
+const mapStateToProps = (state /*, ownProps*/) => {
+  return {
+    board: state.board
+  }
+}
+
+export default connect(
+  mapStateToProps
+)(Board)

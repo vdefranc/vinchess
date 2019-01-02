@@ -20,15 +20,24 @@ const files = [
   'h'
 ];
 
-function Board(props) {
+function Board({ board }) {
+  const boardAsArray = Object.entries(board).reduce((acc, [key, value]) => {
+    for (var prop in value) {
+      acc.push(value[prop])
+    }
+
+    return acc;
+  }, [])
+
   return <Container>
-    {Array(64).fill('').map((_, i) => {
+    {boardAsArray.map((val, i) => {
       const indexOfFile = (i + 8) % 8;
       const file = files[indexOfFile];
       const rank = (8 - Math.floor((i + 8) / 8)) + 1
 
       return <Square
         key={i}
+        {...val}
         file={file}
         rank={rank}
       >

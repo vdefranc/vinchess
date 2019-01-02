@@ -32,12 +32,11 @@ const Position = styled.span`
   font-size: 0.75em;
 `
 
-function Square({ rank, file, size }) {
+function Square({ rank, file, size, piece }) {
   const fileIndexDivisibleBy2 = !(files.indexOf(file) % 2)
   const rankDivisibleby2 = !(rank % 2)
   let backgroundColor;
   let color;
-
 
   if (fileIndexDivisibleBy2 && !rankDivisibleby2) {
     backgroundColor = "white"
@@ -65,7 +64,8 @@ function Square({ rank, file, size }) {
       backgroundColor,
       color
     }}>
-    <Position>{file + rank}</Position>
+      <p>{piece.type.toUpperCase()}</p>
+      <Position>{file + rank}</Position>
   </Container>;
 }
 

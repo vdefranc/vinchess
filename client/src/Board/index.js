@@ -21,11 +21,13 @@ export default function Board(props) {
   return <React.Fragment>
     {Array(64).fill('').map((_, i) => {
       const indexOfFile = (i + 8) % 8;
+      const file = files[indexOfFile];
+      const rank = Math.floor((i + 8) / 8)
 
       return <Square
         key={i}
-        file={files[indexOfFile]}
-        rank={i}
+        file={file}
+        rank={rank}
       >
       </Square>
     })}

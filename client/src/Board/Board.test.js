@@ -73,6 +73,22 @@ describe("Square props", () => {
       })
     })
   })
+
+  describe('the value of the rank props', () => {
+    const squares = getSquares();
+
+    test('the first square should have rank of 1', () => {
+      const square = getSquares()[0];
+
+      expect(square.prop("rank")).toEqual(1);
+    })
+
+    test('the 9th square should have rank of 2', () => {
+      const square = getSquares()[8];
+
+      expect(square.prop("rank")).toEqual(2);
+    })
+  })
 })
 
 function getSquares() {

@@ -30,6 +30,10 @@ export default function getFilledBoard() {
         if (file === "c" || file === "f") {
           blank[rank][file].type = "b"
         }
+
+        if (file === "d") {
+          blank[rank][file].type = "K"
+        }
       }
     }
   }

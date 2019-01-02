@@ -5,7 +5,8 @@ export default function getFilledBoard() {
 
   for (var rank in blank) {
     for (var file in blank[rank]) {
-      // console.log(blank[rank][file])
+
+      // PAWN SHIT
       if (rank === '2') {
         blank[rank][file].type = 'p'
         blank[rank][file].color = 'b'
@@ -14,6 +15,13 @@ export default function getFilledBoard() {
       if (rank === '7') {
         blank[rank][file].type = 'p'
         blank[rank][file].color = 'w'
+      }
+
+      // rook shit
+      if (rank === "1" || rank === "8") {
+        if (file === "a" || file === "h") {
+          blank[rank][file].type = "r";
+        }
       }
     }
   }

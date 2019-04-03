@@ -11,7 +11,6 @@ class Game extends React.Component {
   constructor() {
     super();
     this.engine = new Chess();
-    window.engine = this.engine
   }
 
   onSubmit = (e) => {
@@ -26,7 +25,41 @@ class Game extends React.Component {
   }
 
   render() {
-    const board = this.engine.SQUARES.map(s => this.engine.get(s))
+    const numMovesMap = this.engine.SQUARES.reduce((acc, square) => {
+      const validMovesFromSquare = this.engine.moves({
+        square,
+        verbose: true
+      });
+
+      const piece = this.engine.get(square)
+
+      if (!acc[square]) {
+        acc[square] = 0
+      }
+
+      if (piece && piece.type === 'p') {
+        return acc
+      }
+
+      for (var i = 0; i < validMovesFromSquare.length; i++) {
+        const { to: destinationSquare } = validMovesFromSquare[i]
+
+        if (!acc[destinationSquare]) {
+          acc[destinationSquare] = 1
+        } else {
+          acc[destinationSquare]++
+        }
+      }
+
+      return acc;
+    }, {})
+
+    const board = this.engine.SQUARES.map(s => {
+      return {
+        piece: this.engine.get(s),
+        numAttackers: numMovesMap[s]
+      }
+    })
 
     return <section>
       <Board board={board} />

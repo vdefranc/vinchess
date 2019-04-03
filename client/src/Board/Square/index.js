@@ -33,7 +33,7 @@ const Position = styled.span`
   font-size: 0.75em;
 `
 
-function Square({ rank, file, size, piece }) {
+function Square({ rank, file, size, piece, numAttackers }) {
   const fileIndexDivisibleBy2 = !(files.indexOf(file) % 2)
   const rankDivisibleby2 = !(rank % 2)
   let backgroundColor;
@@ -60,6 +60,8 @@ function Square({ rank, file, size, piece }) {
       backgroundColor,
       color: piece && piece.color === 'b' ? 'black' : 'white'
     }}>
+      {numAttackers > 0 && <span style={{ color: 'blue' }}>{numAttackers}</span>}
+
       { piece && piece.type &&
         <svg viewBox={`1 1 43 43`} width={size.width / 1.5} height={size.width}>
           <g>{getPieceSvg(piece.type, piece.color)}</g>

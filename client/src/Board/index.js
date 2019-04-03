@@ -23,7 +23,7 @@ const files = [
 
 function Board({ board }) {
   return <Container>
-    {board.map((piece, i) => {
+    {board.map(({piece, numAttackers}, i) => {
       const indexOfFile = (i + 8) % 8;
       const file = files[indexOfFile];
       const rank = (8 - Math.floor((i + 8) / 8)) + 1
@@ -33,6 +33,7 @@ function Board({ board }) {
         piece={piece}
         file={file}
         rank={rank}
+        numAttackers={numAttackers}
       >
       </Square>
     })}

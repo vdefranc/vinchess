@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { withSize } from "react-sizeme";
 
 import SVGs from "./pieceSvgs";
+import getPieceSvg from "./vinPieceSvgs"
 
 const files = [
   "a",
@@ -54,7 +55,7 @@ function Square({ rank, file, size, piece }) {
     backgroundColor = "cornflowerblue"
   }
 
-  if (piece.type === 'pawn' && piece.color === 'w') {
+  if (piece.type === 'pawn') {
     console.log(SVGs.wP)
     return <Container
       style={{
@@ -63,7 +64,7 @@ function Square({ rank, file, size, piece }) {
         color: piece.color === 'b' ? 'black' : 'white'
       }}>
         <svg viewBox={`1 1 43 43`} width={size.width / 1.5} height={size.width}>
-          <g>{SVGs.wP}</g>
+          <g>{getPieceSvg(piece.type, piece.color)}</g>
         </svg>
       </Container>;
   }

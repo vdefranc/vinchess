@@ -55,30 +55,18 @@ function Square({ rank, file, size, piece }) {
     backgroundColor = "cornflowerblue"
   }
 
-  if (piece.type === 'pawn' || piece.type === 'rook' || piece.type === 'knight' || piece.type === 'bishop') {
-    console.log(SVGs.wP)
-    return <Container
-      style={{
-        height: size.width,
-        backgroundColor,
-        color: piece.color === 'b' ? 'black' : 'white'
-      }}>
-        <svg viewBox={`1 1 43 43`} width={size.width / 1.5} height={size.width}>
-          <g>{getPieceSvg(piece.type, piece.color)}</g>
-        </svg>
-      </Container>;
-  }
-
   return <Container
     style={{
       height: size.width,
       backgroundColor,
       color: piece.color === 'b' ? 'black' : 'white'
     }}>
-      <i style={{fontSize: '2em'}} className={`cm cm-${piece.color}-${piece.type}`} aria-hidden="true"></i>
-
-      {/* <Position>{file + rank}</Position> */}
-  </Container>;
+      { piece.type &&
+        <svg viewBox={`1 1 43 43`} width={size.width / 1.5} height={size.width}>
+          <g>{getPieceSvg(piece.type, piece.color)}</g>
+        </svg>
+      }
+    </Container>;
 }
 
 Square.propTypes = {

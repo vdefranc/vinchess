@@ -58,9 +58,9 @@ function Square({ rank, file, size, piece }) {
     style={{
       height: size.width,
       backgroundColor,
-      color: piece.color === 'b' ? 'black' : 'white'
+      color: piece && piece.color === 'b' ? 'black' : 'white'
     }}>
-      { piece.type &&
+      { piece && piece.type &&
         <svg viewBox={`1 1 43 43`} width={size.width / 1.5} height={size.width}>
           <g>{getPieceSvg(piece.type, piece.color)}</g>
         </svg>

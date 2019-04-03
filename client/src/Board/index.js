@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Square from "./Square";
 import { connect } from 'react-redux';
+import getBlankBoard from "../store/getBlankBoard"
 
 const Container = styled.div`
   display: grid;
@@ -20,9 +21,7 @@ const files = [
   'h'
 ];
 
-function Board({ board }) {
-  console.log(board)
-
+function Board({ engine, board }) {
   const boardAsArray = Object.entries(board).reduce((acc, [key, value]) => {
     for (var prop in value) {
       acc.push(value[prop])
@@ -39,7 +38,7 @@ function Board({ board }) {
 
       return <Square
         key={i}
-        piece={val}
+        piece={engine.get(file + rank)}
         file={file}
         rank={rank}
       >

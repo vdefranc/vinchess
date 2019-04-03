@@ -12,7 +12,7 @@ const baseSvgProps = {
 }
 
 const pieceMap = {
-  pawn: (color) => {
+  p: (color) => {
     const fill = color === 'b'? '#000' : '#fff'
 
     return (
@@ -36,27 +36,27 @@ const pieceMap = {
       </svg>
     )
   },
-  rook: (color) => {
+  r: (color) => {
     return <svg {...baseSvgProps} >
       {rooks[color]}
     </svg>
   },
-  knight: (color) => {
+  n: (color) => {
     return <svg {...baseSvgProps} >
       {knights[color]}
     </svg>
   },
-  bishop: (color) => {
+  b: (color) => {
     return <svg {...baseSvgProps} >
       {bishops[color]}
     </svg>
   },
-  queen: (color) => {
+  q: (color) => {
     return <svg {...baseSvgProps} >
       {queens[color]}
     </svg>
   },
-  king: (color) => {
+  k: (color) => {
     return <svg {...baseSvgProps} >
       {kings[color]}
     </svg>

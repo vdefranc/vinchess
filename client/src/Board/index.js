@@ -21,16 +21,9 @@ const files = [
   'h'
 ];
 
-function Board({ engine, board }) {
-
-  console.log(engine.SQUARES.map(s => {
-    return engine.get(s)
-  }))
-
-  const newBoard = engine.SQUARES.map(s => engine.get(s))
-
+function Board({ board }) {
   return <Container>
-    {newBoard.map((piece, i) => {
+    {board.map((piece, i) => {
       const indexOfFile = (i + 8) % 8;
       const file = files[indexOfFile];
       const rank = (8 - Math.floor((i + 8) / 8)) + 1
@@ -46,12 +39,4 @@ function Board({ engine, board }) {
   </Container>
 }
 
-const mapStateToProps = (state /*, ownProps*/) => {
-  return {
-    board: state.board
-  }
-}
-
-export default connect(
-  mapStateToProps
-)(Board)
+export default Board

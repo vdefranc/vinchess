@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux'
 import './App.css';
 import styled from "styled-components";
-import Chess from "chess.js"
 
 import store from "./store";
-import Board from "./Board";
+import Game from "./Game";
 
 const Container = styled.section`
   background-color: #282c34;
@@ -18,7 +17,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Container>
-          <Board engine={new Chess()} />
+          <Game />
         </Container>
       </Provider>
     );

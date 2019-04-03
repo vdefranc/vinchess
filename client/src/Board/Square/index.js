@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { withSize } from "react-sizeme";
 
+import SVGs from "./pieceSvgs";
+
 const files = [
   "a",
   "b",
@@ -35,35 +37,44 @@ function Square({ rank, file, size, piece }) {
   const fileIndexDivisibleBy2 = !(files.indexOf(file) % 2)
   const rankDivisibleby2 = !(rank % 2)
   let backgroundColor;
-  let color;
 
   if (fileIndexDivisibleBy2 && !rankDivisibleby2) {
-    backgroundColor = "white"
-    color = "black";
+    backgroundColor = "papayawhip"
   }
 
   if (!fileIndexDivisibleBy2 && !rankDivisibleby2) {
-    backgroundColor = "black"
-    color = "white";
+    backgroundColor = "cornflowerblue"
   }
 
   if (!fileIndexDivisibleBy2 && rankDivisibleby2) {
-    backgroundColor = "white"
-    color = "black";
+    backgroundColor = "papayawhip"
   }
 
   if (fileIndexDivisibleBy2 && rankDivisibleby2) {
-    backgroundColor = "black"
-    color = "white";
+    backgroundColor = "cornflowerblue"
+  }
+
+  if (piece.type === 'pawn' && piece.color === 'w') {
+    console.log(SVGs.wP)
+    return <Container
+      style={{
+        height: size.width,
+        backgroundColor,
+        color: piece.color === 'b' ? 'black' : 'white'
+      }}>
+        <svg viewBox={`1 1 43 43`} width={size.width / 1.5} height={size.width}>
+          <g>{SVGs.wP}</g>
+        </svg>
+      </Container>;
   }
 
   return <Container
     style={{
       height: size.width,
       backgroundColor,
-      color
+      color: piece.color === 'b' ? 'black' : 'white'
     }}>
-      <i className={`cm cm-${piece.color}-${piece.type}`} aria-hidden="true"></i>
+      <i style={{fontSize: '2em'}} className={`cm cm-${piece.color}-${piece.type}`} aria-hidden="true"></i>
 
       {/* <Position>{file + rank}</Position> */}
   </Container>;

@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { withSize } from "react-sizeme";
 
-import SVGs from "./pieceSvgs";
 import getPieceSvg from "./vinPieceSvgs"
 
 const files = [

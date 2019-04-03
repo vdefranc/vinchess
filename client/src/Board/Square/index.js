@@ -55,7 +55,7 @@ function Square({ rank, file, size, piece }) {
     backgroundColor = "cornflowerblue"
   }
 
-  if (piece.type === 'pawn' || piece.type === 'rook') {
+  if (piece.type === 'pawn' || piece.type === 'rook' || piece.type === 'knight' || piece.type === 'bishop') {
     console.log(SVGs.wP)
     return <Container
       style={{

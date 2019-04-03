@@ -5,6 +5,8 @@ import { withSize } from "react-sizeme";
 
 import getPieceSvg from "./vinPieceSvgs"
 
+import Overlay from "./Overlay"
+
 const files = [
   "a",
   "b",
@@ -37,6 +39,7 @@ function Square({ rank, file, size, piece, numAttackers }) {
   const fileIndexDivisibleBy2 = !(files.indexOf(file) % 2)
   const rankDivisibleby2 = !(rank % 2)
   let backgroundColor;
+  let opacity;
 
   if (fileIndexDivisibleBy2 && !rankDivisibleby2) {
     backgroundColor = "papayawhip"
@@ -54,16 +57,22 @@ function Square({ rank, file, size, piece, numAttackers }) {
     backgroundColor = "cornflowerblue"
   }
 
+  // if (numAttackers > 0 ) {
+  //   backgroundColor = 'green'
+  //   opacity = 0.5
+  // }
+
   return <Container
     style={{
       height: size.width,
       backgroundColor,
+      opacity,
       color: piece && piece.color === 'b' ? 'black' : 'white'
     }}>
-      {numAttackers > 0 && <span style={{ color: 'blue' }}>{numAttackers}</span>}
+      {numAttackers > 0 && <Overlay />}
 
       { piece && piece.type &&
-        <svg viewBox={`1 1 43 43`} width={size.width / 1.5} height={size.width}>
+        <svg style={{zIndex: 4}} viewBox={`1 1 43 43`} width={size.width / 1.5} height={size.width}>
           <g>{getPieceSvg(piece.type, piece.color)}</g>
         </svg>
       }

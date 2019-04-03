@@ -5,27 +5,43 @@ import Board from "../Board"
 
 class Game extends React.Component {
   state = {
-    history: []
+    history: [],
+    numMovesMap: {}
   }
 
   constructor() {
     super();
     this.engine = new Chess();
+    window.engine = this.engine
+    // this.engine.move('e4')
+    // this.engine.move('e5')
   }
 
   onSubmit = (e) => {
     const move = e.target[0].value;
 
+    console.log(this.engine.turn())
+    const isBlackMoving = this.engine.turn() === 'b'
+
     e.preventDefault()
+    const thing = this.engine.move(move)
+    console.log(thing)
+    this.engine.undo()
+    this.engine.remove(thing.from)
+    this.engine.put({ type: thing.piece, color: thing.color }, thing.to)
+    const yo = this.getNumMovesMap()
+    this.engine.remove(thing.to)
+    this.engine.put({ type: thing.piece, color: thing.color }, thing.from)
     this.engine.move(move)
 
     this.setState({
-      history: [...this.state.history, move]
+      history: [...this.state.history, move],
+      numMovesMap: isBlackMoving ? this.state.numMovesMap : yo
     })
   }
 
-  render() {
-    const numMovesMap = this.engine.SQUARES.reduce((acc, square) => {
+  getNumMovesMap() {
+    return this.engine.SQUARES.reduce((acc, square) => {
       const validMovesFromSquare = this.engine.moves({
         square,
         verbose: true
@@ -41,6 +57,12 @@ class Game extends React.Component {
         return acc
       }
 
+      if (piece && piece.type === 'n') {
+        if (square[1] === '1' || square[1] === '8') {
+          return acc
+        }
+      }
+
       for (var i = 0; i < validMovesFromSquare.length; i++) {
         const { to: destinationSquare } = validMovesFromSquare[i]
 
@@ -53,11 +75,13 @@ class Game extends React.Component {
 
       return acc;
     }, {})
+  }
 
+  render() {
     const board = this.engine.SQUARES.map(s => {
       return {
         piece: this.engine.get(s),
-        numAttackers: numMovesMap[s]
+        numAttackers: this.state.numMovesMap[s]
       }
     })
 

@@ -16,7 +16,6 @@ const files = [
 
 const Container = styled.div`
   height: 100px;
-  border: 1px solid gray;
 
   display: flex;
   align-items: center;

@@ -13,8 +13,6 @@ const Container = styled.section`
   color: white;
 `;
 
-console.log(new Chess())
-
 class App extends Component {
   render() {
     return (

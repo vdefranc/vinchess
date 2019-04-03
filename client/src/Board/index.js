@@ -22,23 +22,22 @@ const files = [
 ];
 
 function Board({ engine, board }) {
-  const boardAsArray = Object.entries(board).reduce((acc, [key, value]) => {
-    for (var prop in value) {
-      acc.push(value[prop])
-    }
 
-    return acc;
-  }, [])
+  console.log(engine.SQUARES.map(s => {
+    return engine.get(s)
+  }))
+
+  const newBoard = engine.SQUARES.map(s => engine.get(s))
 
   return <Container>
-    {boardAsArray.map((val, i) => {
+    {newBoard.map((piece, i) => {
       const indexOfFile = (i + 8) % 8;
       const file = files[indexOfFile];
       const rank = (8 - Math.floor((i + 8) / 8)) + 1
 
       return <Square
         key={i}
-        piece={engine.get(file + rank)}
+        piece={piece}
         file={file}
         rank={rank}
       >

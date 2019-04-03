@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux'
 import './App.css';
 import styled from "styled-components";
-import "chess-merida-font/css/chessmerida-webfont.css"
+import Chess from "chess.js"
+
 import store from "./store";
 import Board from "./Board";
 
@@ -17,7 +18,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Container>
-          <Board />
+          <Board engine={new Chess()} />
         </Container>
       </Provider>
     );

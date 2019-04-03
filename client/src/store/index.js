@@ -7,7 +7,7 @@ const initialState = {
 
 const store = createStore((state = initialState) => {
   return {
-    ...state
+    ...state,
   };
 })
 

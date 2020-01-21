@@ -7,11 +7,11 @@ const Container = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: green;
-  opacity: 0.5;
+  background-color: rgb(255, 255, 51);
   z-index: 2;
 `
 
-export default function Overlay() {
-  return <Container />
+export default function Overlay({isDarkSquare}) {
+  const opacity = isDarkSquare ? 0.6 : 0.45
+  return <Container style={{opacity}} />
 }

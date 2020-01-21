@@ -35,41 +35,31 @@ const Position = styled.span`
   font-size: 0.75em;
 `
 
-function Square({ rank, file, size, piece, numAttackers }) {
+function Square({ rank, file, size, piece, numAttackers, dark }) {
   const fileIndexDivisibleBy2 = !(files.indexOf(file) % 2)
   const rankDivisibleby2 = !(rank % 2)
   let backgroundColor;
-  let opacity;
 
-  if (fileIndexDivisibleBy2 && !rankDivisibleby2) {
-    backgroundColor = "papayawhip"
+  const isDarkSquare = (
+    (!fileIndexDivisibleBy2 && !rankDivisibleby2) ||
+    (fileIndexDivisibleBy2 && rankDivisibleby2)
+  )
+
+  if (isDarkSquare) {
+    backgroundColor = dark
   }
 
-  if (!fileIndexDivisibleBy2 && !rankDivisibleby2) {
-    backgroundColor = "cornflowerblue"
+  if (!isDarkSquare) {
+    backgroundColor = "#ffefd561"
   }
-
-  if (!fileIndexDivisibleBy2 && rankDivisibleby2) {
-    backgroundColor = "papayawhip"
-  }
-
-  if (fileIndexDivisibleBy2 && rankDivisibleby2) {
-    backgroundColor = "cornflowerblue"
-  }
-
-  // if (numAttackers > 0 ) {
-  //   backgroundColor = 'green'
-  //   opacity = 0.5
-  // }
 
   return <Container
     style={{
       height: size.width,
       backgroundColor,
-      opacity,
       color: piece && piece.color === 'b' ? 'black' : 'white'
     }}>
-      {numAttackers > 0 && <Overlay />}
+    {numAttackers > 0 && <Overlay isDarkSquare={isDarkSquare} />}
 
       { piece && piece.type &&
         <svg style={{zIndex: 4}} viewBox={`1 1 43 43`} width={size.width / 1.5} height={size.width}>

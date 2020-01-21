@@ -2,19 +2,28 @@ import React from 'react';
 import Chess from "chess.js"
 
 import Board from "../Board"
+import { cpus } from 'os';
 
 class Game extends React.Component {
   state = {
     history: [],
-    numMovesMap: {}
+    numMovesMap: {},
+    dark: '#deb887b8'
   }
 
   constructor() {
     super();
     this.engine = new Chess();
-    window.engine = this.engine
-    // this.engine.move('e4')
-    // this.engine.move('e5')
+
+    ["e4", "e5", "Nf3", "Nc6", "Nc3", "Nf6"].forEach(move => {
+      this.engine.move(move)
+    })
+  }
+
+  componentDidMount() {
+    this.setState({
+      numMovesMap: this.getNumMovesMap()
+    })
   }
 
   onSubmit = (e) => {
@@ -77,6 +86,13 @@ class Game extends React.Component {
     }, {})
   }
 
+  onSubmitColor = (e) => {
+    const color = e.target[0].value;
+    e.preventDefault()
+
+    this.setState({dark: color})
+  }
+
   render() {
     const board = this.engine.SQUARES.map(s => {
       return {
@@ -86,11 +102,17 @@ class Game extends React.Component {
     })
 
     return <section>
-      <Board board={board} />
+      <Board board={board} dark={this.state.dark} />
 
       <form style={{marginTop: '1em'}} onSubmit={this.onSubmit}>
         <input name="move" type="text" />
         <button type="submit">submit</button>
+      </form>
+
+
+      <form style={{ marginTop: '1em' }} onSubmit={this.onSubmitColor}>
+        <input name="color" type="text" />
+        <button type="submit">submit color</button>
       </form>
     </section>
   }

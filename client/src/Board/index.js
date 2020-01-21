@@ -22,7 +22,7 @@ const files = [
   'h'
 ];
 
-function Board({ board }) {
+function Board({ board, dark }) {
   return <Container>
     {board.map(({piece, numAttackers}, i) => {
       const indexOfFile = (i + 8) % 8;
@@ -35,6 +35,7 @@ function Board({ board }) {
         file={file}
         rank={rank}
         numAttackers={numAttackers}
+        dark={dark}
       >
       </Square>
     })}

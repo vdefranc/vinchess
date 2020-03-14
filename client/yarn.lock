@@ -1141,9 +1141,9 @@ acorn-walk@^6.0.1:
   integrity sha512-OtUw6JUTgxA2QoqqmrmQ7F2NYqiBPi/L2jqHyFtllhOUvXYQXf0Z1CYUinIfyT4bTCGmrA7gX9FvHA81uzCoVw==
 
 acorn@^5.0.0, acorn@^5.5.3, acorn@^5.6.2:
-  version "5.7.3"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.3.tgz#67aa231bf8812974b85235a96771eb6bd07ea279"
-  integrity sha512-T/zvzYRfbVojPWahDsE5evJdHb3oJoQfFbsrKM7w5Zcs++Tr257tia3BmMP8XYVjp1S9RZXQMh7gao96BlqZOw==
+  version "5.7.4"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.4.tgz#3e8d8a9947d0599a1796d10225d7432f4a4acf5e"
+  integrity sha512-1D++VG7BhrtvQpNbBzovKNc1FLGGEE/oGe7b9xJm/RFHMBeUaUGpluV9RLjZa47YFdPcDAenEYuq9pQPcMdLJg==
 
 acorn@^6.0.1, acorn@^6.0.2, acorn@^6.0.4:
   version "6.0.4"
@@ -2196,10 +2196,10 @@ cheerio@^1.0.0-rc.2:
     lodash "^4.15.0"
     parse5 "^3.0.1"
 
-chess-merida-font@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/chess-merida-font/-/chess-merida-font-0.0.3.tgz#74d40727618e6b0be61abfa9c3310907a7bb6640"
-  integrity sha1-dNQHJ2GOawvmGr+pwzEJB6e7ZkA=
+chess.js@^0.10.2:
+  version "0.10.3"
+  resolved "https://registry.yarnpkg.com/chess.js/-/chess.js-0.10.3.tgz#8c3b98e8411c2ff3ab4b1fc022ddebd1ae037120"
+  integrity sha512-i51JgVM0ksFMbLJYKoDpfrcFxJHq/XQQx8NltCdfMyDv7vpU5JVzsZz1EOw7nA27eGA5t8tSxodAN+Wc704BoQ==
 
 chokidar@^2.0.0, chokidar@^2.0.2, chokidar@^2.0.4:
   version "2.0.4"

@@ -2196,10 +2196,10 @@ cheerio@^1.0.0-rc.2:
     lodash "^4.15.0"
     parse5 "^3.0.1"
 
-chess-merida-font@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/chess-merida-font/-/chess-merida-font-0.0.3.tgz#74d40727618e6b0be61abfa9c3310907a7bb6640"
-  integrity sha1-dNQHJ2GOawvmGr+pwzEJB6e7ZkA=
+chess.js@^0.10.2:
+  version "0.10.3"
+  resolved "https://registry.yarnpkg.com/chess.js/-/chess.js-0.10.3.tgz#8c3b98e8411c2ff3ab4b1fc022ddebd1ae037120"
+  integrity sha512-i51JgVM0ksFMbLJYKoDpfrcFxJHq/XQQx8NltCdfMyDv7vpU5JVzsZz1EOw7nA27eGA5t8tSxodAN+Wc704BoQ==
 
 chokidar@^2.0.0, chokidar@^2.0.2, chokidar@^2.0.4:
   version "2.0.4"
@@ -9697,9 +9697,9 @@ typedarray@^0.0.6:
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
 ua-parser-js@^0.7.18:
-  version "0.7.19"
-  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.19.tgz#94151be4c0a7fb1d001af7022fdaca4642659e4b"
-  integrity sha512-T3PVJ6uz8i0HzPxOF9SWzWAlfN/DavlpQqepn22xgve/5QecC+XMCAtmUNnY7C9StehaV6exjUCI801lOI7QlQ==
+  version "0.7.28"
+  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.28.tgz#8ba04e653f35ce210239c64661685bf9121dec31"
+  integrity sha512-6Gurc1n//gjp9eQNXjD9O3M/sMwVtN5S8Lv9bvOYBfKfDNiIIhqiyi01vMBO45u4zkDE420w/e0se7Vs+sIg+g==
 
 uglify-es@^3.3.4:
   version "3.3.9"
